@@ -1,5 +1,6 @@
 package com.example.retrofit_hilt.di
 
+import com.example.healthproclienttask.auth.nework.AuthApiService
 import com.example.healthproclienttask.utility.NetworkUtility
 import dagger.Module
 import dagger.Provides
@@ -19,7 +20,7 @@ object NetworkModule {
 
     @Provides
     fun providesAuthorizationUrl(): String {
-        return NetworkUtility.AUTHORIZATION_URL
+        return NetworkUtility.BASE_URL
     }
 
     @Provides
@@ -56,8 +57,8 @@ object NetworkModule {
             .build()
     }
 
-//    @Provides // Project ma kyay pan Api call karvo hoy..aa method ne inject kari lo
-//    fun providesApiService(retrofit: Retrofit): ApiService { // Interface available karavdavie chhie..
-//        return retrofit.create(ApiService::class.java)
-//    }
+    @Provides // for api call
+    fun providesAuthApiService(retrofit: Retrofit): AuthApiService { // Interface available karavdavie chhie..
+        return retrofit.create(AuthApiService::class.java)
+    }
 }
