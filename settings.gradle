@@ -8,6 +8,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "HealthProClientTask"
 include ':app'
-include ':fitbitapi'
-include ':fitbitauth'
-include ':fitbitcommon'
